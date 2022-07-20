@@ -1,13 +1,8 @@
-- 👋 Hi, I’m @SSStepa
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+### Given an integer x, return true if x is palindrome integer.
+### An integer is a palindrome when it reads the same backward as forward.
+### For example, 121 is a palindrome while 123 is not.
 
-<!---
-SSStepa/SSStepa is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+
 class Solution:
     def isPalindrome(self, x: int) -> bool:
         our_list=list(str(x))
