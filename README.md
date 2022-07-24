@@ -89,7 +89,7 @@ class Solution_5:
 ###You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the ith customer has in the jth bank. Return the wealth that the richest ###customer has.
 ###A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
 
-class Solution_7:
+class Solution_6:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
         x=0
         for i in accounts:
@@ -112,3 +112,58 @@ class Solution_7:
                 x+=1
             heights[heights.index(i)]=0
         return x
+
+
+###Given a binary array nums, return the maximum number of consecutive 1's in the array.
+
+class Solution_8:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        our_list=[]
+        x=[]
+        for i in nums:
+            if i==1:
+                x.append(i)
+            else:
+                our_list.append(x)
+                x=[]
+        else:
+            our_list.append(x)
+        our_list=sorted(our_list)
+        return len(our_list[-1])
+   
+   
+   
+###Given an array nums of integers, return how many of them contain an even number of digits.
+
+class Solution_9:
+    def findNumbers(self, nums: List[int]) -> int:
+        x=0
+        for i in nums:
+            i=list(str(i))
+            if len(i)%2==0:
+                x+=1
+        return x
+        
+        
+        
+###Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.       
+class Solution_10:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        our_list=[]
+        for i in nums:
+            x=i**2
+            our_list.append(x)
+        return sorted(our_list)
+        
+        
+###Write an efficient algorithm that searches for a value target in an m x n integer matrix matrix. This matrix has the following properties:
+###Integers in each row are sorted in ascending from left to right.
+###Integers in each column are sorted in ascending from top to bottom.
+
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        for i in matrix:
+            for f in i:
+                if f==target:
+                    return True
+        return False
