@@ -160,10 +160,54 @@ class Solution_10:
 ###Integers in each row are sorted in ascending from left to right.
 ###Integers in each column are sorted in ascending from top to bottom.
 
-class Solution:
+class Solution_11:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         for i in matrix:
             for f in i:
                 if f==target:
                     return True
         return False
+
+
+###Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+###If target is not found in the array, return [-1, -1].
+###You must write an algorithm with O(log n) runtime complexity.
+
+class Solution_12:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        nums_1=sorted(nums,reverse=True)
+        for i in nums:
+            if i==target:
+                x=nums.index(i)
+                break
+        else:
+            return -1,-1
+        for i in nums_1:
+            if i==target:
+                y=len(nums)-(nums_1.index(i)+1)
+                break
+        return x,y
+
+
+
+###Write a function to find the longest common prefix string amongst an array of strings.
+###If there is no common prefix, return an empty string ""
+
+class Solution_13:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        x=0
+        index=0
+        answer=""
+        while x<len(strs[0]):
+            answer_1=strs[0][index]
+            for i in range(1,len(strs)):
+                try:
+                    if answer_1!=strs[i][index]:
+                        return answer
+                except:
+                    return answer
+            else:
+                answer+=answer_1
+            x+=1
+            index+=1
+        return answer  
