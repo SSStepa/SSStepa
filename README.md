@@ -210,4 +210,39 @@ class Solution_13:
                 answer+=answer_1
             x+=1
             index+=1
-        return answer  
+        return answer
+        
+        
+###Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+###An input string is valid if:
+###Open brackets must be closed by the same type of brackets.
+###Open brackets must be closed in the correct order.        
+
+class Solution_14:
+    def isValid(self, s: str) -> bool:
+        our_list=list(s)
+        while len(our_list)>0:
+            x=0
+            for i in our_list:
+                x+=1
+                if (i=="(" or i=="[" or i=="{") and len(our_list)>x:
+                    if  our_list[x]=="(" or our_list[x]=="[" or our_list[x]=="{":
+                        continue
+                    else:
+                        if i=="(" and our_list[x]==")":
+                            our_list.pop(x)
+                            our_list.pop(x-1)
+                            break
+                        elif i=="[" and our_list[x]=="]":
+                            our_list.pop(x)
+                            our_list.pop(x-1)
+                            break
+                        elif i=="{" and our_list[x]=="}":
+                            our_list.pop(x)
+                            our_list.pop(x-1)
+                            break
+                        else:
+                            return False
+                else:
+                    return False
+        return True
