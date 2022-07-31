@@ -265,3 +265,25 @@ class Solution_15:
                     return x
             x+=1
         return -1
+
+
+###Given a string s consisting of words and spaces, return the length of the last word in the string.
+###A word is a maximal substring consisting of non-space characters only.
+
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        x=0
+        while x==0:
+            if s[-1]==" ":
+                s=s[:len(s)-1]
+                print(s)
+            else:
+                break
+        print(s,1)
+        s=reversed(s)
+        for i in s:
+            if i!=" ":
+                x+=1
+            else:
+                return x
+        return x
