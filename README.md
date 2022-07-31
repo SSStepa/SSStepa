@@ -270,7 +270,7 @@ class Solution_15:
 ###Given a string s consisting of words and spaces, return the length of the last word in the string.
 ###A word is a maximal substring consisting of non-space characters only.
 
-class Solution:
+class Solution_16:
     def lengthOfLastWord(self, s: str) -> int:
         x=0
         while x==0:
@@ -287,3 +287,18 @@ class Solution:
             else:
                 return x
         return x
+
+
+###Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+###You must write an algorithm with O(log n) runtime complexity.
+
+class Solution_17:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        for i in nums:
+            if i==target:
+                return nums.index(i)
+        for i in nums:
+            if target>i and (nums[-1]==i or nums[nums.index(i)+1]>target):
+                return nums.index(i)+1
+        else:
+            return 0
