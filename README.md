@@ -1,6 +1,8 @@
 
 # My LeetCode solutions on Python
 
+## 9. Palindrome Number  
+
 ### Given an integer x, return true if x is palindrome integer.  
 ### An integer is a palindrome when it reads the same backward as forward.  
 ### For example, 121 is a palindrome while 123 is not.  
@@ -16,6 +18,8 @@
                 else:  
                     return False  
             return True  
+
+## 412. Fizz Buzz  
 
 ### Given an integer n, return a string array answer (1-indexed) where:  
 ### -answer[i] == "FizzBuzz" if i is divisible by 3 and 5.  
@@ -36,22 +40,22 @@
                 else:  
                     our_list[our_list.index(i)]=str(i)  
             return our_list  
-        
-        
+
+## 1342. Number of Steps to Reduce a Number to zero  
            
-###Given an integer num, return the number of steps to reduce it to zero.
-###In one step, if the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.       
+### Given an integer num, return the number of steps to reduce it to zero.  
+### In one step, if the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.  
    
-class Solution_3:
-    def numberOfSteps(self, num: int) -> int:
-        x=0
-        while num!=0:
-            if num%2==0 :
-                num=num/2
-            else:
-                num-=1
-            x+=1
-        return x
+    class Solution_3:  
+        def numberOfSteps(self, num: int) -> int:  
+            x=0  
+            while num!=0:  
+                if num%2==0 :  
+                    num=num/2  
+                else:  
+                    num-=1  
+                x+=1  
+            return x  
         
         
 ###Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
