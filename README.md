@@ -1,11 +1,11 @@
 
 # My LeetCode solutions on Python
 
-## Given an integer x, return true if x is palindrome integer.  
-## An integer is a palindrome when it reads the same backward as forward.  
-## For example, 121 is a palindrome while 123 is not.  
+### Given an integer x, return true if x is palindrome integer.  
+### An integer is a palindrome when it reads the same backward as forward.  
+### For example, 121 is a palindrome while 123 is not.  
 
-    `class Solution_1:  
+    class Solution_1:  
         def isPalindrome(self, x: int) -> bool:  
             our_list=list(str(x))  
             y=-1  
@@ -15,15 +15,15 @@
                     continue  
                 else:  
                     return False  
-            return True`  
+            return True  
 
-## Given an integer n, return a string array answer (1-indexed) where:  
-## -answer[i] == "FizzBuzz" if i is divisible by 3 and 5.  
-## -answer[i] == "Fizz" if i is divisible by 3.  
-## -answer[i] == "Buzz" if i is divisible by 5.  
-## -answer[i] == i (as a string) if none of the above conditions are true.  
+### Given an integer n, return a string array answer (1-indexed) where:  
+### -answer[i] == "FizzBuzz" if i is divisible by 3 and 5.  
+### -answer[i] == "Fizz" if i is divisible by 3.  
+### -answer[i] == "Buzz" if i is divisible by 5.  
+### -answer[i] == i (as a string) if none of the above conditions are true.  
 
-    `class Solution_2:  
+    class Solution_2:  
         def fizzBuzz(self, n: int) -> List[str]:  
             our_list=[i for i in range(1,n+1)]  
             for i in our_list:  
@@ -35,7 +35,7 @@
                     our_list[our_list.index(i)]="Buzz"  
                 else:  
                     our_list[our_list.index(i)]=str(i)  
-            return our_list`  
+            return our_list  
         
         
            
