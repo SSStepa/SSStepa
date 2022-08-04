@@ -230,8 +230,8 @@
   
 ### Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.  
 ### An input string is valid if:  
-### - Open brackets must be closed by the same type of brackets.  
-### - Open brackets must be closed in the correct order.  
+### * Open brackets must be closed by the same type of brackets.  
+### * Open brackets must be closed in the correct order.  
 
     class Solution_14:
         def isValid(self, s: str) -> bool:
@@ -262,83 +262,88 @@
                         return False
             return True
 
+## 28. Implement strStr()  
 
-###Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
-###Clarification:
-###What should we return when needle is an empty string? This is a great question to ask during an interview.
-###For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
+### Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.  
+### Clarification:  
+### What should we return when needle is an empty string? This is a great question to ask during an interview.  
+### For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().  
 
-class Solution_15:
-    def strStr(self, haystack: str, needle: str) -> int:
-        if needle=="":
-            return 0
-        x=0
-        for i in haystack:
-            if i==needle[0]:
-                y=haystack[x:x+len(needle)]
-                if y==needle:
-                    return x
+    class Solution_15:
+        def strStr(self, haystack: str, needle: str) -> int:
+            if needle=="":
+                return 0
+            x=0
+            for i in haystack:
+                if i==needle[0]:
+                    y=haystack[x:x+len(needle)]
+                    if y==needle:
+                        return x
             x+=1
-        return -1
+            return -1
 
+## 58. Length of Last Word  
 
-###Given a string s consisting of words and spaces, return the length of the last word in the string.
-###A word is a maximal substring consisting of non-space characters only.
+### Given a string s consisting of words and spaces, return the length of the last word in the string.  
+### A word is a maximal substring consisting of non-space characters only.  
 
-class Solution_16:
-    def lengthOfLastWord(self, s: str) -> int:
-        x=0
-        while x==0:
-            if s[-1]==" ":
-                s=s[:len(s)-1]
-                print(s)
+    class Solution_16:
+        def lengthOfLastWord(self, s: str) -> int:
+            x=0
+            while x==0:
+                if s[-1]==" ":
+                    s=s[:len(s)-1]
+                    print(s)
+                else:
+                    break
+            print(s,1)
+            s=reversed(s)
+            for i in s:
+                if i!=" ":
+                    x+=1
+                else:
+                    return x
+            return x
+
+## 35. Search Insert Position  
+
+### Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.  
+### You must write an algorithm with O(log n) runtime complexity.  
+
+    class Solution_17:
+        def searchInsert(self, nums: List[int], target: int) -> int:
+            for i in nums:
+                if i==target:
+                    return nums.index(i)
+            for i in nums:
+                if target>i and (nums[-1]==i or nums[nums.index(i)+1]>target):
+                    return nums.index(i)+1
             else:
-                break
-        print(s,1)
-        s=reversed(s)
-        for i in s:
-            if i!=" ":
-                x+=1
-            else:
-                return x
-        return x
+                return 0
 
+## 66. Plus One  
 
-###Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
-###You must write an algorithm with O(log n) runtime complexity.
+### You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.  
+### Increment the large integer by one and return the resulting array of digits.  
 
-class Solution_17:
-    def searchInsert(self, nums: List[int], target: int) -> int:
-        for i in nums:
-            if i==target:
-                return nums.index(i)
-        for i in nums:
-            if target>i and (nums[-1]==i or nums[nums.index(i)+1]>target):
-                return nums.index(i)+1
-        else:
-            return 0
+    class Solution_18:
+        def plusOne(self, digits: List[int]) -> List[int]:
+            for i in range(len(digits)):
+                digits[i]=str(digits[i])
+            nums=int("".join(digits))+1
+            return list(str(nums))
 
+## 378. Kth Smallest Element in a Sorted Matrix  
 
-###You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most ###significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
-###Increment the large integer by one and return the resulting array of digits.
+### Given an n x n matrix where each of the rows and columns is sorted in ascending order, return the kth smallest element in the matrix.  
+### Note that it is the kth smallest element in the sorted order, not the kth distinct element.  
+### You must find a solution with a memory complexity better than O(n2).  
 
-class Solution_18:
-    def plusOne(self, digits: List[int]) -> List[int]:
-        for i in range(len(digits)):
-            digits[i]=str(digits[i])
-        nums=int("".join(digits))+1
-        return list(str(nums))
-
-
-###Given an n x n matrix where each of the rows and columns is sorted in ascending order, return the kth smallest element in the matrix.
-###Note that it is the kth smallest element in the sorted order, not the kth distinct element.
-###You must find a solution with a memory complexity better than O(n2).
-
-class Solution_19:
-    def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
-        x=[]
-        for i in matrix:
-            for f in i:
-                x.append(f)
-        x=sorted(x)
-        return x[k-1]
+    class Solution_19:
+        def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
+            x=[]
+            for i in matrix:
+                for f in i:
+                    x.append(f)
+            x=sorted(x)
+            return x[k-1]
