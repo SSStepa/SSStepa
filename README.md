@@ -56,44 +56,46 @@
                     num-=1  
                 x+=1  
             return x  
+ 
+ ## 1480. Running Sum of 1d Array
         
-        
-###Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
-###Return the running sum of nums.
-class Solution_4:
-    def runningSum(self, nums: List[int]) -> List[int]:
-        our_list=[nums[0]]
-        y=1
-        element=our_list[-1]
-        while y<len(nums):
-            x=nums[y]
-            our_list.append(x+element)
-            y+=1
-            element=our_list[-1]
-        return our_list  
-   
-   
-###Given an integer array nums, find three numbers whose product is maximum and return the maximum product.   
+### Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).  
+### Return the running sum of nums.  
+    class Solution_4:  
+        def runningSum(self, nums: List[int]) -> List[int]:  
+            our_list=[nums[0]]  
+            y=1  
+            element=our_list[-1]  
+            while y<len(nums):  
+                x=nums[y]  
+                our_list.append(x+element)  
+                y+=1  
+                element=our_list[-1]  
+            return our_list  
 
-class Solution_5:
-    def maximumProduct(self, nums: List[int]) -> int:
-        nums=sorted(nums)
-        if nums[0]>=0:
-            y,z=-2,-3
-        elif nums[0]<0 and nums[-1]>=0:
-            if nums[0]*nums[1]>nums[-2]*nums[-3]:
-                y,z=0,1
+## 628. Maximum Product of Three Numbers  
+   
+### Given an integer array nums, find three numbers whose product is maximum and return the maximum product.  
+
+    class Solution_5:
+        def maximumProduct(self, nums: List[int]) -> int:
+            nums=sorted(nums)
+            if nums[0]>=0:
+                y,z=-2,-3
+            elif nums[0]<0 and nums[-1]>=0:
+                if nums[0]*nums[1]>nums[-2]*nums[-3]:
+                    y,z=0,1
+                else:
+                    y,z=-2,-3
             else:
                 y,z=-2,-3
-        else:
-            y,z=-2,-3
-        x=nums[-1]*nums[y]*nums[z]
-        return x
+            x=nums[-1]*nums[y]*nums[z]
+            return x
 
+## 1672. Richest Customer Wealth  
 
-
-###You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the ith customer has in the jth bank. Return the wealth that the richest ###customer has.
-###A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
+### You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the ith customer has in the jth bank. Return the wealth that the richest customer has.  
+### A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.  
 
 class Solution_6:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
