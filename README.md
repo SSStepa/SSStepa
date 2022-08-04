@@ -353,7 +353,7 @@
 ### Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.  
 ### Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.  
 
-    class Solution:
+    class Solution_20:
         def duplicateZeros(self, arr: List[int]) -> None:
             """
             Do not return anything, modify arr in-place instead.
@@ -367,3 +367,40 @@
                     continue
                 x+=1
             return(arr)
+
+## 88. Merge Sorted Array  
+
+### You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.  
+### Merge nums1 and nums2 into a single array sorted in non-decreasing order.  
+### The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.  
+    
+    class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        while m<len(nums1):
+            nums1.pop(-1)
+        nums1.extend(nums2)
+        x=len(nums1)-1
+        element_1=0
+        element_2=1
+        num=0
+        y=0
+        while x>0:
+            while element_2<len(nums1)-y:
+                if int(nums1[element_1])>int(nums1[element_2]):
+                    num=nums1[element_1]
+                    nums1[element_1]=nums1[element_2]
+                    nums1[element_2]=num
+                    element_1+=1
+                    element_2+=1  
+                else:
+                    element_1+=1
+                    element_2+=1
+                continue
+            element_1=0
+            element_2=1
+            x-=1
+            y+=1
+        return nums1
