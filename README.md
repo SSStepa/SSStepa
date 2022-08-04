@@ -22,10 +22,10 @@
 ## 412. Fizz Buzz  
 
 ### Given an integer n, return a string array answer (1-indexed) where:  
-### -answer[i] == "FizzBuzz" if i is divisible by 3 and 5.  
-### -answer[i] == "Fizz" if i is divisible by 3.  
-### -answer[i] == "Buzz" if i is divisible by 5.  
-### -answer[i] == i (as a string) if none of the above conditions are true.  
+### - answer[i] == "FizzBuzz" if i is divisible by 3 and 5.  
+### - answer[i] == "Fizz" if i is divisible by 3.  
+### - answer[i] == "Buzz" if i is divisible by 5.  
+### - answer[i] == i (as a string) if none of the above conditions are true.  
 
     class Solution_2:
         def fizzBuzz(self, n: int) -> List[str]:
@@ -230,8 +230,8 @@
   
 ### Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.  
 ### An input string is valid if:  
-### -Open brackets must be closed by the same type of brackets.  
-### -Open brackets must be closed in the correct order.  
+### - Open brackets must be closed by the same type of brackets.  
+### - Open brackets must be closed in the correct order.  
 
     class Solution_14:
         def isValid(self, s: str) -> bool:
