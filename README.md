@@ -452,3 +452,36 @@
             for i in array:
                 nums.append(i)
             nums=sorted(nums)
+
+## 2351. First Letter to Appear Twice  
+
+### Given a string s consisting of lowercase English letters, return the first letter to appear twice.  
+### Note:  
+### * A letter a appears twice before another letter b if the second occurrence of a is before the second occurrence of b.  
+### * s will contain at least one letter that appears twice.  
+
+    class Solution_25:
+        def repeatedCharacter(self, s: str) -> str:
+            our_set=set()
+            for i in s:
+                if our_set&{i} !=set():
+                    return i
+                else:
+                    our_set.add(i)
+
+## 387. First Unique Character in a String  
+
+### Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.  
+
+    class Solution_26:
+        def firstUniqChar(self, s: str) -> int:
+            for i in range(len(s)):
+                num=0
+                for f in s:
+                    if s[i]==f:
+                        num+=1
+                        if num>1:
+                            break
+                else:
+                    return i
+            return -1
