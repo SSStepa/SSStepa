@@ -560,3 +560,23 @@
             if x==True:
                 return False
             return True
+
+## 1299. Replace Elements with Greatest Element on Right Side  
+
+### Given an array arr, replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1.  
+### After doing so, return the array.  
+
+    class Solution_30:
+        def replaceElements(self, arr: List[int]) -> List[int]:
+            if len(arr)==1:
+                return [-1]
+            x=0
+            for i in range(len(arr)):
+                if x==0 or arr[i]==x:
+                    x=0
+                    for d in arr[i+1:]:
+                        if x<d:
+                            x=d
+                arr[i]=x
+            arr[-1]=-1
+            return arr
