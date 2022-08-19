@@ -537,7 +537,7 @@
 ### * arr[0] < arr[1] < ... < arr[i - 1] < arr[i]  
 ### * arr[i] > arr[i + 1] > ... > arr[arr.length - 1]  
 
-    class Solution:
+    class Solution_29:
         def validMountainArray(self, arr: List[int]) -> bool:
             if len(arr)<3:
                 return False
