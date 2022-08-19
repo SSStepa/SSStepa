@@ -508,3 +508,55 @@
                     txt+=our_tuple[ord(s)-97]
                 our_set.add(txt)
             return len(our_set)
+
+## 1346. Check If N and Its Double Exist  
+
+### Given an array arr of integers, check if there exists two integers N and M such that N is the double of M ( i.e. N = 2 * M).  
+### More formally check if there exists two indices i and j such that :  
+### * i != j  
+### * 0 <= i, j < arr.length  
+### * arr[i] == 2 * arr[j]  
+
+    class Solution_28:
+        def checkIfExist(self, arr: List[int]) -> bool:
+            our_list=[]
+            for i in arr:
+                our_list.append(i*2)
+            for i in range(len(arr)):
+                for d in range(len(arr)):
+                    if i!=d and our_list[i]==arr[d]:
+                        return True
+            return False
+            
+## 941. Valid Mountain Array  
+
+### Given an array of integers arr, return true if and only if it is a valid mountain array.  
+### Recall that arr is a mountain array if and only if:  
+### * arr.length >= 3  
+### * There exists some i with 0 < i < arr.length - 1 such that:  
+### * arr[0] < arr[1] < ... < arr[i - 1] < arr[i]  
+### * arr[i] > arr[i + 1] > ... > arr[arr.length - 1]  
+
+    class Solution:
+        def validMountainArray(self, arr: List[int]) -> bool:
+            if len(arr)<3:
+                return False
+            x=True
+            for i in range(1,len(arr)):
+                if x==True:
+                    if arr[i]>arr[i-1]:
+                        None
+                    elif arr[i]<arr[i-1] :
+                        x=False
+                    else:
+                        return False
+                else:
+                    if i==2:
+                        return False
+                    if arr[i]<arr[i-1]:
+                        None
+                    else:
+                        return False
+            if x==True:
+                return False
+            return True
