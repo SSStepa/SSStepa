@@ -580,3 +580,63 @@
                 arr[i]=x
             arr[-1]=-1
             return arr
+            
+## 283. Move Zeroes  
+
+### Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.  
+### Note that you must do this in-place without making a copy of the array. 
+
+    class Solution_31:
+        def moveZeroes(self, nums: List[int]) -> None:
+            """
+            Do not return anything, modify nums in-place instead.
+            """
+            l=[]
+            for i in range(len(nums)):
+                if nums[i]==0:
+                    l.append(i)
+            for i in reversed(l):
+                nums.pop(i)
+                nums.append(0)
+            return nums
+            
+## 905. Sort Array By Parity  
+
+### Given an integer array nums, move all the even integers at the beginning of the array followed by all the odd integers.  
+### Return any array that satisfies this condition.  
+
+    class Solution_32:
+        def sortArrayByParity(self, nums: List[int]) -> List[int]:
+        arr=[]
+            for i in nums:
+                if i%2==0:
+                    arr.append(i)
+            for i in nums:
+                if i%2!=0:
+                    arr.append(i)
+            return arr
+
+## 414. Third Maximum Number  
+
+### Given an integer array nums, return the third distinct maximum number in this array. If the third maximum does not exist, return the maximum number.  
+
+    class Solution_33:
+        def thirdMax(self, nums: List[int]) -> int:
+            nums=set(nums)
+            nums=sorted(list(nums))
+            if len(nums)>=3:
+                return nums[-3]
+            else:
+                return nums[-1]
+
+## 448. Find All Numbers Disappeared in an Array  
+
+### Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all the integers in the range [1, n] that do not appear in nums.  
+
+    class Solution_34:
+        def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+            l=[k for k in range(1,len(nums)+1)]
+            nums=set(nums)
+            l=set(l)
+            l=l.difference(nums)
+            return list(l)
