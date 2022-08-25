@@ -659,3 +659,22 @@
                     n=n/3
                 else:
                     return False
+
+## 383. Ransom Note  
+
+### Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.  
+### Each letter in magazine can only be used once in ransomNote. 
+
+    class Solution_36:
+        def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+            ransomNote=list(ransomNote)
+            magazine=list(magazine)
+            while ransomNote!=[] :
+                for t in range(len(magazine)):
+                    if ransomNote[0]==magazine[t]:
+                        ransomNote.pop(0)
+                        magazine.pop(t)
+                        break
+                else:
+                    return False
+            return True
