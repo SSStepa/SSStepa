@@ -690,3 +690,21 @@
         def mySqrt(self, x: int) -> int:
             sqrt=math.sqrt(x)
             return int(sqrt)
+
+## 7. Reverse Integer
+
+###Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+
+    class Solution:
+        def reverse(self, x: int) -> int:
+            x = list(str(x))
+            if x[0] == "-":
+                x.pop(0)
+                x.append("-")
+            s = ""
+            for i in reversed(x):
+                s+=i
+            s = int(s)
+            if s < (-2**31) or s > 2**31:
+                return 0
+            return s
