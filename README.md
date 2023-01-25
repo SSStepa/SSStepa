@@ -708,3 +708,15 @@
             if s < (-2**31) or s > 2**31:
                 return 0
             return s
+
+
+## 67. Add Binary
+
+### Given two binary strings a and b, return their sum as a binary string.
+
+    class Solution:
+        def addBinary(self, a: str, b: str) -> str:
+            a = int(a,2)
+            b = int(b,2)
+            ans = bin(a + b)
+            return ans[2:]
