@@ -720,3 +720,28 @@
             b = int(b,2)
             ans = bin(a + b)
             return ans[2:]
+
+
+## 1137. N-th Tribonacci Number
+
+### The Tribonacci sequence Tn is defined as follows: T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
+### Given n, return the value of Tn.
+
+    class Solution:
+        def tribonacci(self, n: int) -> int:
+            if n == 0:
+                return 0
+            elif n == 1 or n == 2:
+                return 1
+            x1 = 0 
+            x2 = 1
+            x3 = 1
+            x4 = 0
+            i = 0
+            while i < n-2 :
+                x4 = x1 + x2 + x3
+                x1 = x2
+                x2 = x3
+                x3 = x4
+                i+=1
+            return x4
