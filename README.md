@@ -758,3 +758,17 @@
                 ans.append(nums[i])
                 ans.append(nums[i+n])
             return ans
+
+
+## 1523. Count Odd Numbers in an Interval Range
+
+### Given two non-negative integers low and high. Return the count of odd numbers between low and high (inclusive).
+
+    class Solution:
+        def countOdds(self, low: int, high: int) -> int:
+            if low%2 == 1 and high%2 == 1:
+                return int((high-low+2)/2)
+            elif low%2 == 0 and high%2 == 0:
+                return int((high-low)/2)
+            else:
+                return int((high-low+1)/2)
