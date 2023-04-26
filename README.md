@@ -805,3 +805,16 @@
                 if (nums[i]==nums[-1] or nums[i]!=nums[i+1]) and (i==0 or nums[i-1]!=nums[i]):
 
                     return nums[i]
+
+
+## 258. Add Digits
+### Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
+
+    class Solution:
+        def addDigits(self, num: int) -> int:
+            while int(num)>=10:
+                num1 = 0
+                for i in str(num):
+                    num1+=int(i)
+                num = num1
+            return num
