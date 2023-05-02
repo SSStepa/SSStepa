@@ -856,3 +856,15 @@
 ### 0 if x is equal to 0.
 ### You are given an integer array nums. Let product be the product of all values in the array nums.
 ### Return signFunc(product).
+
+    class Solution:
+        def arraySign(self, nums: List[int]) -> int:
+            x = 1
+            for i in nums:
+                x = x*i
+            if x>0:
+                return 1
+            elif x<0:
+                return -1
+            else:
+                return 0
