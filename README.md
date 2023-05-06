@@ -935,3 +935,22 @@
                     y-=1
                 x=max(x, y)
             return x
+
+## 1498. Number of Subsequences That Satisfy the Given Sum Condition
+### You are given an array of integers nums and an integer target.
+### Return the number of non-empty subsequences of nums such that the sum of the minimum and maximum element on it is less or equal to target. Since the 
+### answer may be too large, return it modulo 109 + 7.
+
+    class Solution:
+        def numSubseq(self, nums: List[int], target: int) -> int:
+            nums.sort()
+            left, right = 0, len(nums) - 1
+            res = 0
+            mod = 10**9 + 7
+            while left <= right:
+                if nums[left] + nums[right] > target:
+                    right -= 1
+                else:
+                    res += pow(2, right - left, mod)
+                    left += 1
+            return res % mod
