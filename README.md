@@ -975,3 +975,24 @@
                     lst[b]=i
                 ans.append(b+1)
             return ans
+
+## 1572. Matrix Diagonal Sum
+### Given a square matrix mat, return the sum of the matrix diagonals.
+### Only include the sum of all the elements on the primary diagonal and all the elements on the secondary diagonal that are not part of the primary diagonal.
+
+    class Solution:
+        def diagonalSum(self, mat: List[List[int]]) -> int:
+            num = 0
+            ans = 0
+            for i in mat:
+                ans+= i[num]
+                num+=1
+            num=len(mat)-1
+            for i in mat:
+                ans+= i[num]
+                num-=1
+            if len(mat)%2!=0:
+                x = len(mat)//2
+                ans-=mat[x][x]
+            return ans
+
