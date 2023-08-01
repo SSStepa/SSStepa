@@ -1005,3 +1005,24 @@
     SELECT Person.firstName, Person.lastName, Address.city, Address.state
     FROM Person 
     LEFT JOIN Address ON Person.personId=Address.personId;
+
+## 182. Duplicate Emails
+### Write an SQL query to report all the duplicate emails. Note that it's guaranteed that the email field is not NULL.
+### Return the result table in any order.
+### The query result format is in the following example.
+
+
+
+    # Write your MySQL query statement below
+    SELECT DISTINCT P1.email FROM Person P1, Person P2
+    WHERE P1.id<>P2.id AND P1.email=P2.email;
+
+## 183. Customers Who Never Order
+### Find all customers who never order anything.
+### Return the result table in any order.
+### The result format is in the following example.
+
+
+    Write your MySQL query statement below
+    SELECT name AS Customers FROM Customers
+    WHERE Customers.id NOT IN (SELECT CustomerId FROM Orders);
