@@ -1026,3 +1026,12 @@
     Write your MySQL query statement below
     SELECT name AS Customers FROM Customers
     WHERE Customers.id NOT IN (SELECT CustomerId FROM Orders);
+
+## 181. Employees Earning More Than Their Managers
+### Write an SQL query to find the employees who earn more than their managers.
+### Return the result table in any order.
+### The query result format is in the following example.
+
+    # Write your MySQL query statement below
+    SELECT name As Employee FROM Employee AS Em1
+    WHERE salary>(SELECT salary FROM Employee AS Em2 WHERE Em2.id = Em1.ManagerId);
