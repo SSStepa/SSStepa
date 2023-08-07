@@ -1049,3 +1049,30 @@
             while len(hours)>=good_workers+1 and hours[good_workers]>=target:
                 good_workers+=1
             return good_workers
+            
+## 74. Search a 2D Matrix
+### You are given an m x n integer matrix matrix with the following two properties:
+### Each row is sorted in non-decreasing order.
+### The first integer of each row is greater than the last integer of the previous row.
+### Given an integer target, return true if target is in matrix or false otherwise.
+### You must write a solution in O(log(m * n)) time complexity.
+
+    class Solution:
+        def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+            for row in matrix:
+                if row[-1]>=target:
+                    for i in row:
+                        if i==target:
+                            return True
+
+## 595. Big Countries
+### A country is big if:
+### it has an area of at least three million (i.e., 3000000 km2), or
+### it has a population of at least twenty-five million (i.e., 25000000).
+### Write a solution to find the name, population, and area of the big countries.
+### Return the result table in any order.
+### The result format is in the following example.
+
+    # Write your MySQL query statement below
+    SELECT name, population, World.area FROM World 
+    WHERE World.area>=3000000 or population>=25000000;
