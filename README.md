@@ -1076,3 +1076,13 @@
     # Write your MySQL query statement below
     SELECT name, population, World.area FROM World 
     WHERE World.area>=3000000 or population>=25000000;
+
+## 511. Game Play Analysis I
+### Write a solution to find the first login date for each player.
+### Return the result table in any order.
+### The result format is in the following example.
+
+    # Write your MySQL query statement below
+    SELECT player_id, MIN(event_date) AS first_login FROM Activity
+    GROUP BY player_id;
+    
