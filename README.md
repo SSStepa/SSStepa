@@ -1096,3 +1096,14 @@
     # Write your MySQL query statement below
     DELETE P1 FROM Person P1,Person P2
     WHERE P1.email=P2.email AND P1.id>P2.id;
+
+## 577. Employee Bonus
+### Write an SQL query to report the name and bonus amount of each employee with a bonus less than 1000.
+### Return the result table in any order.
+### The query result format is in the following example.
+
+    # Write your MySQL query statement below
+    SELECT Employee.name, Bonus.bonus 
+    FROM Bonus
+    RIGHT JOIN Employee ON Bonus.EmpId=Employee.EmpId
+    WHERE Bonus.bonus<1000 OR Bonus.bonus IS NULL;
