@@ -1144,3 +1144,37 @@
     # Write your MySQL query statement below
     SELECT teacher_id, COUNT(DISTINCT subject_id ) AS cnt  FROM Teacher
     GROUP BY teacher_id;
+
+## 17. Letter Combinations of a Phone Number
+### Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
+### A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+
+    class Solution:
+        def letterCombinations(self, digits: str) -> List[str]:
+            info = {
+                2:("a", "b", "c"), 
+                3:("d", "e", "f"), 
+                4:("g", "h", "i"),
+                5:("j", "k", "l"),
+                6:("m", "n", "o"),
+                7:("p", "q", "r", "s"),
+                8:("t", "u", "v"),
+                9:("w", "x", "y", "z")
+                }
+            ans = []
+            for i in reversed(digits):
+                if ans:
+                    small_ans = []
+                    for k in info[int(i)]:
+                        for later in range(len(ans)):
+                            x = k + ans[later]
+                            small_ans.append(x)
+                    ans = small_ans
+                else:
+                    for k in info[int(i)]:
+                        ans.append(k)
+            return ans
+        
+
+
+
