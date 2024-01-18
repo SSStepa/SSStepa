@@ -1200,4 +1200,20 @@
                     ans.append(False)
             return ans
 
+## 70. Climbing Stairs
+### You are climbing a staircase. It takes n steps to reach the top.
+### Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+    class Solution:
+        def climbStairs(self, n: int) -> int:
+            fib1 = 1
+            fib2 = 1
+            i = 0
+            while i < n - 1:
+                fib_sum = fib1 + fib2
+                fib1 = fib2
+                fib2 = fib_sum
+                i = i + 1
+            return fib2
+
 
