@@ -1216,4 +1216,15 @@
                 i = i + 1
             return fib2
 
+## 169. Majority Element
+### Given an array nums of size n, return the majority element.
+### The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
 
+    class Solution:
+        def majorityElement(self, nums: List[int]) -> int:
+            half = (len(nums)/2)
+            my_set = set(nums)
+            for i in my_set:
+                print(i)
+                if nums.count(i)>half:
+                    return i
