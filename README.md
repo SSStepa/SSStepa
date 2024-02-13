@@ -1228,3 +1228,53 @@
                 print(i)
                 if nums.count(i)>half:
                     return i
+
+## 2108. Find First Palindromic String in the Array
+### Given an array of strings words, return the first palindromic string in the array. If there is no such string, return an empty string "".
+### A string is palindromic if it reads the same forward and backward.
+
+    class Solution:
+        def firstPalindrome(self, words: List[str]) -> str:
+            for i in words:
+                if i == i[::-1]:
+                    return i
+            return ""
+
+## 1207. Unique Number of Occurrences
+### Given an array of integers arr, return true if the number of occurrences of each value in the array is unique or false otherwise.
+    
+    class Solution:
+        def uniqueOccurrences(self, arr: List[int]) -> bool:
+            my_set = set(arr)
+            ans_set = set()
+            for x in my_set:
+                ans_set.add(arr.count(x))
+            if len(ans_set) == len(my_set):
+                return True
+            else:
+                return False
+## 287. Find the Duplicate Number
+### Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+### There is only one repeated number in nums, return this repeated number.
+### You must solve the problem without modifying the array nums and uses only constant extra space.
+
+    class Solution:
+        def findDuplicate(self, nums: List[int]) -> int:
+            nums_set = set(nums)
+            n_sum = sum(nums) - sum(nums_set)
+            ans = int(n_sum/(len(nums)- len(nums_set)))
+            return ans
+            
+## 1436. Destination City
+### You are given the array paths, where paths[i] = [cityAi, cityBi] means there exists a direct path going from cityAi to cityBi. Return the destination city, that is, the city without any path outgoing to another city.
+### It is guaranteed that the graph of paths forms a line without any loop, therefore, there will be exactly one destination city.
+
+    class Solution:
+        def destCity(self, paths: List[List[str]]) -> str:
+            start = set()
+            end = set()
+            for path in paths:
+                start.add(path[0])
+                end.add(path[1])
+            ans = list(end-start)[0]
+            return ans
