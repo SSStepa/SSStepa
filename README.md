@@ -1278,3 +1278,50 @@
                 end.add(path[1])
             ans = list(end-start)[0]
             return ans
+## 2149. Rearrange Array Elements by Sign
+### You are given a 0-indexed integer array nums of even length consisting of an equal number of positive and negative integers.
+### You should rearrange the elements of nums such that the modified array follows the given conditions:
+### Every consecutive pair of integers have opposite signs.
+### For all integers with the same sign, the order in which they were present in nums is preserved.
+### The rearranged array begins with a positive integer.
+### Return the modified array after rearranging the elements to satisfy the aforementioned conditions.
+
+    class Solution:
+        def rearrangeArray(self, nums: List[int]) -> List[int]:
+            pos = []
+            neg = []
+            for i in nums:
+                if i > 0:
+                    pos.append(i)
+                else:
+                    neg.append(i)
+            nums = []
+            for x in range(len(pos)):
+                nums.append(pos[x])
+                nums.append(neg[x])
+            return nums
+
+## 2966. Divide Array Into Arrays With Max Difference
+### You are given an integer array nums of size n and a positive integer k.
+### Divide the array into one or more arrays of size 3 satisfying the following conditions:
+### Each element of nums should be in exactly one array.
+### The difference between any two elements in one array is less than or equal to k.
+### Return a 2D array containing all the arrays. If it is impossible to satisfy the conditions, return an empty array. And if there are multiple answers, return any of them.
+
+    class Solution:
+        def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
+            nums = sorted(nums)
+            ans = []
+            sub_ans = []
+            for i in nums:
+                if sub_ans == []:
+                    sub_ans.append(i)
+                else:
+                    if i-min(sub_ans) <= k:
+                        sub_ans.append(i)
+                    else:
+                        return []
+                if len(sub_ans) == 3:
+                    ans.append(sub_ans)
+                    sub_ans = []
+            return ans
