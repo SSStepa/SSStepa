@@ -1343,3 +1343,18 @@
                 return sum(nums[i:])
             else:
                 return -1
+
+## 1481. Least Number of Unique Integers after K Removals
+### Given an array of integers arr and an integer k. Find the least number of unique integers after removing exactly k elements.
+
+    class Solution:
+        def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
+            ans = len(set(arr))
+            my_list = list(collections.Counter(arr).values())
+            my_list.sort()
+            while my_list and k >= my_list[0]:
+                k -= my_list[0]
+                ans -= 1
+                my_list.pop(0)
+            return ans
+
