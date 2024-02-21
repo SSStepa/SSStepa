@@ -1374,3 +1374,15 @@
     class Solution:
         def missingNumber(self, nums: List[int]) -> int:
             return sum([i for i in range(len(nums)+1)]) - sum(nums)
+
+## 201. Bitwise AND of Numbers Range
+### Given two integers left and right that represent the range [left, right], return the bitwise AND of all numbers in this range, inclusive.
+
+    class Solution:
+        def rangeBitwiseAnd(self, left: int, right: int) -> int:
+            ziro = 0
+            while left!=right:
+                left >>= 1
+                right >>= 1
+                ziro += 1
+            return left << ziro
