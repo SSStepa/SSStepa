@@ -1474,3 +1474,35 @@
                     while s and s[0] == symb:
                         s.pop(0)
             return len(s)
+
+## 349. Intersection of Two Arrays
+### Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.
+
+    class Solution:
+        def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+            return list(set(nums1)&set(nums2))
+
+## 1578. Minimum Time to Make Rope Colorful
+## Alice has n balloons arranged on a rope. You are given a 0-indexed string colors where colors[i] is the color of the ith balloon.
+## Alice wants the rope to be colorful. She does not want two consecutive balloons to be of the same color, so she asks Bob for help. Bob can remove some balloons from the rope to make it colorful. You are given a 0-indexed integer array neededTime where neededTime[i] is the time (in seconds) that Bob needs to remove the ith balloon from the rope.
+## Return the minimum time Bob needs to make the rope colorful.
+
+    class Solution:
+        def minCost(self, colors: str, neededTime: List[int]) -> int:
+            colors = list(colors)
+            n = 0
+            ans = 0
+            while n < len(colors)-1:
+                if colors[n] == colors[n+1]:
+                    if neededTime[n] < neededTime[n+1]:
+                        colors.pop(n)
+                        ans += neededTime[n]
+                        neededTime.pop(n)
+                    else:
+                        colors.pop(n+1)
+                        ans += neededTime[n+1]
+                        neededTime.pop(n+1)
+                else:
+                    n += 1
+            return ans
+                
