@@ -1591,4 +1591,29 @@
                 else:
                     per = 0
             return smooth
-        
+
+## 1941. Check if All Characters Have Equal Number of Occurrences !!!
+### Given a string s, return true if s is a good string, or false otherwise.
+### A string s is good if all the characters that appear in s have the same number of occurrences (i.e., the same frequency).
+
+    class Solution:
+        def areOccurrencesEqual(self, s: str) -> bool:
+            count = list(collections.Counter(s).values())
+            return min(count) == max(count)
+## 1897. Redistribute Characters to Make All Strings Equal !!!
+### You are given an array of strings words (0-indexed).
+### In one operation, pick two distinct indices i and j, where words[i] is a non-empty string, and move any character from words[i] to any position in words[j].
+### Return true if you can make every string in words equal using any number of operations, and false otherwise.
+
+    class Solution:
+        def makeEqual(self, words: List[str]) -> bool:
+            letters = ''
+            for i in words:
+                letters += i
+            ans = list(collections.Counter(letters).values())
+            n = len(words)
+            for i in ans:
+                if i%n != 0:
+                    return False
+            return True
+
