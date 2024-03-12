@@ -1482,7 +1482,7 @@
         def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
             return list(set(nums1)&set(nums2))
 
-## 1578. Minimum Time to Make Rope Colorful
+## 1578. Minimum Time to Make Rope Colorful !!!
 ### Alice has n balloons arranged on a rope. You are given a 0-indexed string colors where colors[i] is the color of the ith balloon.
 ### Alice wants the rope to be colorful. She does not want two consecutive balloons to be of the same color, so she asks Bob for help. Bob can remove some balloons from the rope to make it colorful. You are given a 0-indexed integer array neededTime where neededTime[i] is the time (in seconds) that Bob needs to remove the ith balloon from the rope.
 ### Return the minimum time Bob needs to make the rope colorful.
@@ -1506,7 +1506,7 @@
                     n += 1
             return ans
 
-## 791. Custom Sort String
+## 791. Custom Sort String !!!
 ### You are given two strings order and s. All the characters of order are unique and were sorted in some custom order previously.
 ### Permute the characters of s so that they match the order that order was sorted. More specifically, if a character x occurs before a character y in order, then x should occur before y in the permuted string.
 ### Return any permutation of s that satisfies this property.
@@ -1522,3 +1522,73 @@
             ans += ''.join(s)
             return ans
 
+## 3002. Maximum Size of a Set After Removals !!!
+### You are given two 0-indexed integer arrays nums1 and nums2 of even length n.
+### You must remove n / 2 elements from nums1 and n / 2 elements from nums2. After the removals, you insert the remaining elements of nums1 and nums2 into a set s.
+### Return the maximum possible size of the set s.
+
+    class Solution:
+        def maximumSetSize(self, nums1: List[int], nums2: List[int]) -> int:
+            n = len(nums1)/2
+            nums1 = set(nums1)
+            nums2 = set(nums2)
+            if len(nums1) <= n and len(nums2) <= n:
+                return len(nums1|nums2)
+            else:
+                n1 = n2 =0
+                if len(nums1) > n:
+                    n1 = len(nums1) - n
+                if len(nums2) > n:
+                    n2 = len(nums2) - n
+                n12 = n1 + n2
+            n12 -= len((nums1&nums2))
+            if n12>0:
+                return int(len(nums1|nums2)-n12)
+            else:
+                return len(nums1|nums2)
+
+## 2679. Sum in a Matrix !!!
+### You are given a 0-indexed 2D integer array nums. Initially, your score is 0. Perform the following operations until the matrix becomes empty:
+### From each row in the matrix, select the largest number and remove it. In the case of a tie, it does not matter which number is chosen.
+### Identify the highest number amongst all those removed in step 1. Add that number to your score.
+### Return the final score.
+
+    class Solution:
+        def matrixSum(self, nums: List[List[int]]) -> int:
+            score = 0
+            while nums[0]:
+                sub_score = 0
+                for i in nums:
+                    if max(i) > sub_score:
+                        sub_score = max(i)
+                    i.remove(max(i))
+                score += sub_score
+            return score
+
+## 1985. Find the Kth Largest Integer in the Array !!!
+### You are given an array of strings nums and an integer k. Each string in nums represents an integer without leading zeros.
+### Return the string that represents the kth largest integer in nums.
+### Note: Duplicate numbers should be counted distinctly. For example, if nums is ["1","2","2"], "2" is the first largest integer, "2" is the second-largest integer, and "1" is the third-largest integer.
+
+    class Solution:
+        def kthLargestNumber(self, nums: List[str], k: int) -> str:
+            nums.sort(reverse=True, key=lambda x: int(x))
+            return nums[k-1]
+
+## 2110. Number of Smooth Descent Periods of a Stock !!!
+### You are given an integer array prices representing the daily price history of a stock, where prices[i] is the stock price on the ith day.
+### A smooth descent period of a stock consists of one or more contiguous days such that the price on each day is lower than the price on the preceding day by exactly 1. The first day of the period is exempted from this rule.
+### Return the number of smooth descent periods.
+
+    class Solution:
+        def getDescentPeriods(self, p: List[int]) -> int:
+            smooth = len(p)
+            per = 0
+            for i in range(1, len(p)):
+                if p[i-1] - p[i] == 1:
+                    per +=1
+                    smooth += per
+                else:
+                    per = 0
+            return smooth
+        
