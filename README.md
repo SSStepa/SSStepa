@@ -1617,3 +1617,15 @@
                     return False
             return True
 
+## 229. Majority Element II !!!
+### Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
+
+    class Solution:
+        def majorityElement(self, nums: List[int]) -> List[int]:
+            n = int(len(nums)/3)
+            count = collections.Counter(nums)
+            ans = []
+            for i in count:
+                if count[i] > n:
+                    ans.append(i)
+            return ans
